@@ -6,12 +6,12 @@ BeeBot is a Discord Bot, which provides an easy and clean access to stats from t
 
 ## Bot Features ##
 
-* Player statistics for all Hive gamemodes\n
-* Comparison of stats between players\n
-* A list of speedrunning records for any player\n
-* Information on a players Block Levels\n
-* Information on a specific player\n
-* Swear Filter\n
+* Player statistics for all Hive gamemodes
+* Comparison of stats between players
+* A list of speedrunning records for any player
+* Information on a players Block Levels
+* Information on a specific player
+* Swear Filter
 * Bot control commands.
 
 *As the bot is constantly under development, there are many more commands that will come in the future!*
