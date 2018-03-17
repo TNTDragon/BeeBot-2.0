@@ -27,7 +27,7 @@ module.exports = {
             }else if (bot.guilds.get(config.settings.serverID).channels.find("name", args[0]) != null) {
 		    	var channelName = args[0];
 		    	args[0] = " ";
-		    	if ((args[1].toLowerCase() == "delete") || (args[1].toLowerCase() == "-d") {
+		    	if ((args[1].toLowerCase() == "delete") || (args[1].toLowerCase() == "-d")) {
 		    		args[1] = " ";
 				message.delete();
 		    	}
