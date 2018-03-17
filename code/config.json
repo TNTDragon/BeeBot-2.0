@@ -1,8 +1,8 @@
 {
   "welcome": "This is an automated welcome message, good to have you in our Discord!",
   "settings": {
-    "serverID": "1234567890",
-    "logChannelID": "1234567890",
+    "serverID": "297779688615706625",
+    "logChannelID": "404729910385573899",
     "adminChannels": ["1234567890","1234567890"],
     "commandRemoval": true,
 	"messageRemovalDelay": 30000,
