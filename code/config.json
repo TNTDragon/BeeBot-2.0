@@ -1,8 +1,9 @@
 {
   "welcome": "This is an automated welcome message, good to have you in our Discord!",
   "settings": {
-    "serverID": 1234567890,
-    "logChannelID": 1234567890,
+    "serverID": "1234567890",
+    "logChannelID": "1234567890",
+    "adminChannels": ["1234567890","1234567890"],
     "commandRemoval": true,
 	"messageRemovalDelay": 30000,
 	"swearFilter": true,
@@ -11,7 +12,7 @@
   },
   "filter": {
     "blockList":["fgt","faggot","faggott","shit","prick", "wtf", "bullshit", "dick", "wanker", "bollocks", "niggi", "niggah", "niggur", "twat", "fuck", "lmfao", "nigger", "cunt", "bastard", "nigga", "nigger", "kys", "asshole", "asshat", "bitch", "stfu","milf"],
-    "exemptedChannels": ["269526879759761408", "274488503243636737", "269465956638523395", "269413408799981568", "282658419968835595", "262699181620068352", "284765313206190081", "262699430711525377","307605282660417537"]
+    "exemptedChannels": []
   },
   "blocks": {
     "PUMPKIN": "Pumpkin",

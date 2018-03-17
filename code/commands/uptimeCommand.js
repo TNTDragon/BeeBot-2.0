@@ -17,7 +17,7 @@ module.exports = {
     allowedInDM: false,
     allowedChannels: [config.settings.logChannelID],
     call: function(message, args){
-        logging.log("Current Uptime", "BeeBot 2.0 has been up for:\n"
+        logging.log("Current Uptime", "BeeBot 2.0 has been up for:\n" +
             Math.floor(bot.uptime / 86400000) + " days\n" +
             Math.floor(bot.uptime / 3600000 % 24) + " hours\n" +
             Math.floor(bot.uptime / 60000 % 60) + " minutes and\n" +

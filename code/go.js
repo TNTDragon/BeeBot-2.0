@@ -8,11 +8,10 @@ const dc = require("discord.js");
 req = require("request");
 /* utility modules (self-written)
 embed = rich embedding present in most commaandsd
-// filter = chat filter module
+filter = chat filter module
 */
 embed = require("./util/embed.js");
 filter = require("./util/filter.js");
-channels = require("./util/channels.js");
 
 //secureConfig
 const secureConfig = require("./secureConfig.json");
