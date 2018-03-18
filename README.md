@@ -2,7 +2,7 @@
 
 ## What am I? ##
 
-BeeBot is a Discord Bot, which provides an easy and clean access to stats from the "The Hive" Minecraft server. The bot was originally made by Maxthat, but is currently maintained and updated by TNT Dragon and Caphaldor. Check out the forum post linked at the bottom for more information.
+BeeBot is a Discord Bot, which provides an easy and clean access to stats from the "The Hive" Minecraft server. The bot was originally made by Maxthat, but is currently maintained and updated by TNT Dragon and Caphaldor. Check out the forum post linked at the bottom for more information on how to set the bot up.
 
 ## Bot Features ##
 
@@ -16,7 +16,17 @@ BeeBot is a Discord Bot, which provides an easy and clean access to stats from t
 
 *As the bot is constantly under development, there are many more commands that will come in the future!*
 
-The bot has a settings area in the config.json file under the code directory. Don't forget to put your Server ID and Log Channel ID there when you set up the bot, and set the rest as you please
+The bot has a settings area in the config.json file under the code directory. Additionally to that, you will have to create a "secureConfig.json" in the code folder and have it look like this:
+
+```JSON
+{
+ "token":"mDRagAiGOcaNlS.Mse0rD.Nm4unR_bARoEt_tCOokOeLn",
+ "serverID": "1234567890",
+ "logChannelID": "1234567890"
+}
+```
+
+*You have to replace the example values on the right with: Your bot token, Your server Id, Channel ID of wherever you want the bot to log everything.*
 
 ## Embeded message ##
 

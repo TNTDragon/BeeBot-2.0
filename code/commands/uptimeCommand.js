@@ -15,7 +15,7 @@ module.exports = {
     description: "Provides the uptime of the current BeeBot 2.0 instance.",
     usage: "-uptime",
     allowedInDM: false,
-    allowedChannels: [config.settings.logChannelID],
+    allowedChannels: [secureConfig.logChannelID],
     call: function(message, args){
         logging.log("Current Uptime", "BeeBot 2.0 has been up for:\n" +
             Math.floor(bot.uptime / 86400000) + " days\n" +

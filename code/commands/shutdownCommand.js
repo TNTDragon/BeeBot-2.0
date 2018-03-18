@@ -15,7 +15,7 @@ module.exports = {
     description: "Shuts down BeeBot 2.0",
     usage: "-shutdown",
     allowedInDM: false,
-    allowedChannels: [config.settings.logChannelID],
+    allowedChannels: [secureConfig.logChannelID],
     call: function(message, args){
         logging.log("SHUTDOWN SCHEDULED", "Shutting down in 5 seconds...", "white");
         setTimeout(shutdown, 5000);
