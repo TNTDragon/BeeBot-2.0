@@ -13,8 +13,8 @@ filter = chat filter module
 embed = require("./util/embed.js");
 filter = require("./util/filter.js");
 
-//secureConfig
-const secureConfig = require("./secureConfig.json");
+//Server-specific Config
+secureConfig = require("./secureConfig.json");
 
 //Loads all the available commands
 const command = require("./commands/commands.js");
