@@ -67,10 +67,10 @@ module.exports = {
         }else{
             req("http://api.hivemc.com/v1/player/" + args[0], function (error, response, body) {
                 if (error){logging.legacyLog("URGENT HTTP ERROR")}
-                var hiveData = JSON.parse(body);
-				//The command first checks if the player is seen in the API
-                if (hiveData.UUID){
-					//Default String values asume that the player is online
+				//The command first checks if the website finds the player
+                if (!(String(body).includes("Sorry, the page you are looking for could not be found"))){
+                    var hiveData = JSON.parse(body);
+					//Default String values assumes that the player is online
                     var color = "green";
 					var onlineCheck = "";
 					//If player is offline, the above values are changed appropriately
