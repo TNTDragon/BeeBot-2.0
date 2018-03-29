@@ -17,7 +17,7 @@ module.exports = {
     allowedInDM: false,
     allowedChannels: [secureConfig.logChannelID],
     call: function(message, args){
-        logging.log("SHUTDOWN SCHEDULED", "Shutting down in 5 seconds...", "white");
+        logging.log("SHUTDOWN SCHEDULED", "Shutting down in 5 seconds...", "blue");
         setTimeout(shutdown, 5000);
     }
 };

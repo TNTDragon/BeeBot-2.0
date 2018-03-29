@@ -28,7 +28,7 @@ The bot has a settings area in the config.json file under the code directory. Ad
 
 *You have to replace the example values on the right with: Your bot token, Your server Id, Channel ID of wherever you want the bot to log everything.*
 
-## Embeded message ##
+## Embedded message ##
 
 Most responses by BeeBot are color-coded embeds, following these simple rules:
 
