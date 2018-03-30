@@ -13,8 +13,8 @@ filter = chat filter module
 embed = require("./util/embed.js");
 filter = require("./util/filter.js");
 
-//secureConfig
-const secureConfig = require("./secureConfig.json");
+//Server-specific Config
+secureConfig = require("./secureConfig.json");
 
 //Loads all the available commands
 const command = require("./commands/commands.js");
@@ -62,7 +62,7 @@ bot.on('guildMemberAdd', function(member){
 //The Following is main core of the bote and is executed on every message sent
 bot.on("message", function (message) {
     //Exit if the message was sent by a bot or the user doesn't share server with the bot.
-    if ((message.author.bot) || (bot.guilds.get(config.settings.serverID).members.get(message.author.id) == undefined)) return;
+    if ((message.author.bot) || (bot.guilds.get(secureConfig.serverID).members.get(message.author.id) == undefined)) return;
 	//Message filter - if enabled it removes messages that contain words from the "blocklist" in config.json
     if (config.settings.swearFilter && filter(message.content, "swearFilter") && message.channel.type != "dm" && !config.filter.exemptedChannels.includes(message.channel.id)){
         logging.log("Abusive Chat", "User: " + message.author.username + "\nMessage: " + message.content + "\nChannel: " + message.channel.name, "orange");

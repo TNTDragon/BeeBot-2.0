@@ -13,7 +13,7 @@ function blockLevel(xp, detail) {
     var progressBar = "";
 	if (detail) {
 		//number of bars in detailed answer
-		var bars = 20;
+		var bars = 10;
 		//number of bars that are 'filled'
 		var leftoverXP = Math.floor(bars*exp/(level*50))
 		//In case player reached level cap,
