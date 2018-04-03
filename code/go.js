@@ -9,9 +9,11 @@ req = require("request");
 /* utility modules (self-written)
 embed = rich embedding present in most commaandsd
 filter = chat filter module
+logging = logging module
 */
 embed = require("./util/embed.js");
 filter = require("./util/filter.js");
+logging = require("./util/logging.js");
 
 //Server-specific Config
 secureConfig = require("./secureConfig.json");
@@ -21,9 +23,6 @@ const command = require("./commands/commands.js");
 
 //creating discord client
 bot = new dc.Client();
-
-//destination of logging folder
-logging = require("./logging.js");
 
 //list with tokens
 list = new Map();
