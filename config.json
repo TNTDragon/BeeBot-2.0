@@ -10,7 +10,7 @@
   },
   "filter": {
     "blockList":["fgt","faggot","faggott","shit","prick", "wtf", "bullshit", "dick", "wanker", "bollocks", "niggi", "niggah", "niggur", "twat", "fuck", "lmfao", "nigger", "cunt", "bastard", "nigga", "nigger", "kys", "asshole", "asshat", "bitch", "stfu","milf"],
-    "exemptedChannels": []
+    "exemptedChannels": ["1234567890","1234567890"]
   },
   "blocks": {
     "PUMPKIN": "Pumpkin",

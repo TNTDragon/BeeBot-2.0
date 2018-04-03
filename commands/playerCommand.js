@@ -56,9 +56,9 @@ module.exports = {
     allowedInDM: true,
     allowedChannels: ["All"],
     call: function(message, args){
-		//Remove the message if it's in a public channel
+        //Remove the message if it's in a public channel
         if (message.channel.type != "dm" && config.settings.commandRemoval) {message.delete();}
-		//In case user forgets to specify the player
+        //In case user forgets to specify the player
         if (args[0]==undefined) {
             if (message.channel.type != "dm" && config.settings.commandRemoval) {message.delete(config.settings.messageRemovalDelay);}
             message.reply("The proper usage for the command is:\n" +
@@ -67,13 +67,13 @@ module.exports = {
         }else{
             req("http://api.hivemc.com/v1/player/" + args[0], function (error, response, body) {
                 if (error){logging.legacyLog("URGENT HTTP ERROR")}
-				//The command first checks if the website finds the player
+                //The command first checks if the website finds the player
                 if (!(String(body).includes("Sorry, the page you are looking for could not be found"))){
                     var hiveData = JSON.parse(body);
-					//Default String values assumes that the player is online
+                    //Default String value assumes that the player is online
                     var color = "green";
 					var onlineCheck = "";
-					//If player is offline, the above values are changed appropriately
+                    //If player is offline, the above values are changed appropriately
                     if (hiveData.status.description == "Currently hibernating in") {
                         color = "gray";
 						onlineCheck = "\n`" + hiveData.username + "` was last seen on the " + timeConverter(hiveData.lastLogout)
@@ -89,7 +89,7 @@ module.exports = {
                             "\n`" + hiveData.username + "` has first logged on the " + timeConverter(hiveData.firstLogin) + 
 							onlineCheck, color, "https://crafatar.com/avatars/" + hiveData.UUID + "?overlay", "https://hivemc.com/player/" + hiveData.username)
                     }).then(msg => checkDM(msg, message.channel.type));
-				//If the player is not found, error will pop up
+                //If the player is not found, error will pop up
                 }else{
                         message.reply("",
                             {

@@ -16,17 +16,19 @@ BeeBot is a Discord Bot, which provides an easy and clean access to stats from t
 
 *As the bot is constantly under development, there are many more commands that will come in the future!*
 
-The bot has a settings area in the config.json file under the code directory. Additionally to that, you will have to create a "secureConfig.json" in the code folder and have it look like this:
+You will have to create a "secureConfig.json" in the code folder and have it look like this:
 
 ```JSON
 {
- "token":"mDRagAiGOcaNlS.Mse0rD.Nm4unR_bARoEt_tCOokOeLn",
+ "token":"mDRagAiGOcaNlS.Mse0rD.bNm4unR_bARoEt_tCOokOeLn",
  "serverID": "1234567890",
  "logChannelID": "1234567890"
 }
 ```
 
 *You have to replace the example values on the right with: Your bot token, Your server Id, Channel ID of wherever you want the bot to log everything.*
+
+Additionally to that, the bot has a settings area in the config.json file where you can modify some simple things to your liking (full explanation in the forum post at the bottom).
 
 ## Embedded message ##
 
@@ -41,7 +43,7 @@ White = Help messages
 Black = unassigned (default)
 ```
 
-*Note, 'White' has a blue tint to be visible in the light version of the Discord application.*
+*Note: 'White' has a blue tint to be visible in the light version of the Discord application.*
 
 ## Contact & Information ##
 
@@ -53,6 +55,6 @@ If you have troubles with installing sodium for the bot, you can use the link be
 
 [Discord Server](https://discord.gg/q4mAbPK)
 
-[Forum post](https://forum.hivemc.com/forums/)
+[Forum post](https://forum.hivemc.com/threads/beebot-2-0-discord-bot-for-hive-players.299018/)
 
-[sodium download](https://drive.google.com/file/d/1E-AjE6b9mTCE8OwOqy5gUrilsOY2BuN7/view)
+[Sodium download](https://drive.google.com/file/d/1E-AjE6b9mTCE8OwOqy5gUrilsOY2BuN7/view)
