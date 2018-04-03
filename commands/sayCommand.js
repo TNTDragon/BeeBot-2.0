@@ -22,22 +22,22 @@ module.exports = {
             message.reply("The proper usage for the command is: " +
             "\n-say {Chat channel name} [delete] {Message}").then(msg => checkDM(msg, message.channel.type));
         } else {
-                if (bot.guilds.get(secureConfig.serverID).channels.find("name", args[0]) != null && config.settings.adminChannels.includes(bot.guilds.get(secureConfig.serverID).channels.find("name", args[0]).id)) {
-		    	message.reply("I'm sorry, but I cannot send a message to that channel");
+            if (bot.guilds.get(secureConfig.serverID).channels.find("name", args[0]) != null && config.settings.adminChannels.includes(bot.guilds.get(secureConfig.serverID).channels.find("name", args[0]).id)) {
+                message.reply("I'm sorry, but I cannot send a message to that channel");
             }else if (bot.guilds.get(secureConfig.serverID).channels.find("name", args[0]) != null) {
-		    	var channelName = args[0];
-		    	args[0] = " ";
-		    	if ((args[1].toLowerCase() == "delete") || (args[1].toLowerCase() == "-d")) {
-		    		args[1] = " ";
-				message.delete();
-		    	}
-		    	bot.guilds.get(secureConfig.serverID).channels.find("name", channelName).sendMessage(args.join(' '))
-		    	.catch(function () {
-                 console.log("Error in posting to the #" + channelName + " channel.");
+                var channelName = args[0];
+                args[0] = " ";
+                if ((args[1].toLowerCase() == "delete") || (args[1].toLowerCase() == "-d")) {
+                    args[1] = " ";
+                    message.delete();
+                }
+                bot.guilds.get(secureConfig.serverID).channels.find("name", channelName).sendMessage(args.join(' '))
+                .catch(function () {
+                console.log("Error in posting to the #" + channelName + " channel.");
                 });
-		    }else {
-		    	message.reply("I'm sorry, but I couldn't find #" + args[0]);
-		    }
-		}
+            }else {
+                message.reply("I'm sorry, but I couldn't find #" + args[0]);
+            }
+        }
     }
 };

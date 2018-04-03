@@ -70,15 +70,15 @@ bot.on("message", function (message) {
     }
 	
     /*   Checks the message prefix (first character)
-	====================================================================================
-	By default BeeBot uses - or / for commands (For example "-say" or "/stats")
-	You can add/remove the prefixes in the if() statement below, separating them with ||
-	Example:
-	if(starter == "~" || starter == "$")
-	Will cause messages such as "$compare" or "~stats" be seen as the proper commands
+    ====================================================================================
+    By default BeeBot uses - or / for commands (For example "-say" or "/stats")
+    You can add/remove the prefixes in the if() statement below, separating them with ||
+    Example:
+    if(starter == "~" || starter == "$")
+    Will cause messages such as "$compare" or "~stats" be seen as the proper commands
     Do note that default command help will still show the - prefix
-	====================================================================================
-	*/
+    ====================================================================================
+    */
     var starter = message.content.substr(0, 1);
     if(starter == "-" || starter == "/") {
       message.content = message.content.substr(1);
