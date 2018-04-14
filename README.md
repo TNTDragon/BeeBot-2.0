@@ -43,7 +43,7 @@ White = Help messages
 Black = unassigned (default)
 ```
 
-*Note: 'White' has a blue tint to be visible in the light version of the Discord application*
+*Note: 'White' has a blue tint to be visible in the light version of the Discord application.*
 
 ## Contact & Information ##
 
