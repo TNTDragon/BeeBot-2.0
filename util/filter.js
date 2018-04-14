@@ -6,11 +6,5 @@ module.exports = function (text, fType) {
             match = true;
         }
     });}
-    if (fType == "mod") {
-        config.filter.hackList.forEach(function (el) {
-        if (text.toLowerCase().includes(el)) {
-            match = true;
-        }
-    });}
     return match;
 };

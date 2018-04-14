@@ -591,7 +591,8 @@ module.exports = {
                                     "**Points:** " + hiveData.points + " (" + hiveData.title + ")" +
                                     "\n**Victories:** " + hiveData.victories +
                                     "\n**Games Played:** " + hiveData.gamesplayed +
-                                    "\n**Tables Cleared:** " + hiveData.tablescleared + advertisement, "gold","https://crafatar.com/renders/body/"+ hiveData.UUID.toString() +"?overlay", "https://hivemc.com/player/" + args[1])
+                                    "\n**Tables Cleared:** " + hiveData.tablescleared +
+                                    "\n**Highscore:** " + hiveData.highscore + advertisement, "gold","https://crafatar.com/renders/body/"+ hiveData.UUID.toString() +"?overlay", "https://hivemc.com/player/" + args[1])
                              }).then(msg => checkDM(msg, message.channel.type));
                     }else{
                         message.reply("",
@@ -1001,6 +1002,36 @@ module.exports = {
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
+                break;
+            case "ee":
+                if (message.channel.type != "dm" && config.settings.commandRemoval) {message.delete();}
+                req("http://api.hivemc.com/v1/player/" + args[1] + "/EE", function (error, response, body) {
+                    //in case Hive's API has issues
+                    if (error){logging.legacyLog("URGENT HTTP ERROR")}
+                    //Grab all the information from the API,
+                    //and put it into hiveData Object
+                    var hiveData = JSON.parse(body);
+                    if (hiveData.UUID){
+                        //This bit here adds a link to the Community Hub Discord,
+                        //feel free to disable it in the settings if you want.
+                        var advertisement = ""
+                        if (config.settings.advertisement) {advertisement="\n\n[ᶜˡᶦᶜᵏ ᵐᵉ](https://discord.gg/q4mAbPK) ᵗᵒ ᶜʰᵉᶜᵏ ᵒᵘᵗ ᵗʰᵉ ᴴᶦᵛᵉ ᶜᵒᵐᵐᵘⁿᶦᵗʸ ʰᵘᵇ"}
+                        message.reply("",
+                            {
+                                embed: embed("Exploding Eggs stats of `" + args[1] + "`",
+                                    "**Points:** " + hiveData.points +
+                                    "\n**Victories:** " + hiveData.victories +
+                                    "\n**Games Played:** " + hiveData.gamesplayed +
+                                    "\n**Leaps:** " + hiveData.leaps, "gold","https://crafatar.com/renders/body/"+ hiveData.UUID.toString() +"?overlay", "https://hivemc.com/player/" + args[1])
+                             }).then(msg => checkDM(msg, message.channel.type, divN));
+                    }else{
+                        message.reply("",
+                            {
+                                embed: embed("Error",
+                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                             }).then(msg => checkDM(msg, message.channel.type, divN));
+                        }
+                    });
                 break;
             case "arcade":
                 if (message.channel.type != "dm" && config.settings.commandRemoval) {message.delete();}

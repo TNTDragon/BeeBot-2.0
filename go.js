@@ -58,7 +58,7 @@ bot.on('guildMemberAdd', function(member){
     member.sendMessage(config.welcome);
 });
 
-//The Following is main core of the bote and is executed on every message sent
+//The following is main core of the bote and is executed on every message sent
 bot.on("message", function (message) {
     //Exit if the message was sent by a bot or the user doesn't share server with the bot.
     if ((message.author.bot) || (bot.guilds.get(secureConfig.serverID).members.get(message.author.id) == undefined)) return;
