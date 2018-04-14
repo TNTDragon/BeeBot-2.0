@@ -8,7 +8,7 @@ module.exports = {
     },
     legacyLog: function (msg) {
         bot.channels.get(secureConfig.logChannelID).send(msg).catch(function () {
-            console.log("Error whilst attempting to (legacy) log something.");
+            console.log("Error whilst attempting to legacyLog something.");
         });
     }
 };

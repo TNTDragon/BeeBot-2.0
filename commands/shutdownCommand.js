@@ -23,8 +23,8 @@ module.exports = {
 };
 //shutdown function
 function shutdown() {
-    //destroy discord connection
+    //destroys discord connection
     bot.destroy();
-    //end this node instance; waiting for PM2's service manager to start it up again
+    //ends this node instance; waiting for PM2's service manager to start it up again
     process.exit(1337);
 }

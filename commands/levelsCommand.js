@@ -61,7 +61,7 @@ module.exports = {
     and actual command name has to be changed via commands.js
     ===============================================================
     */
-    description: "Lists all block levels from Hide and Seek.",
+    description: "Lists all block levels from Hide and Seek",
     usage: "-levels {Player} <Page> [-d]",
     allowedInDM: true,
     allowedChannels: ["All"],

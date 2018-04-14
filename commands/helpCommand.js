@@ -20,7 +20,7 @@ module.exports = {
     and actual command name has to be changed via commands.js
     ===============================================================
     */
-    description: "Provides help for all public BeeBot 2.0 commands",
+    description: "Provides help for all usable BeeBot 2.0 commands",
     usage: "-help <Page>",
     allowedInDM: true,
     allowedChannels: ["All"],

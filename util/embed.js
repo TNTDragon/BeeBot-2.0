@@ -10,7 +10,7 @@ module.exports = function (title, msg, color, thumb,urlLink) {
     }else if(color == "green"){
         colour = 0x008a00;
     }else if(color == "white"){
-        //Not truly white, slightly blue so it's visible on Light settings
+        //Not truly white, slightly blue so it's visible in Discord Light Mode
         colour = 0xc1f1ff;
     }else if(color == "gray"){
         colour = 0x808080;

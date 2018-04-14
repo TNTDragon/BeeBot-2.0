@@ -1,5 +1,5 @@
-//Here lie all the command names,
-//change them if you please.
+//Here lie all of the command names,
+//change them if you so please.
 module.exports = {
 	levels: require("./levelsCommand.js"),
     times: require("./timesCommand.js"),

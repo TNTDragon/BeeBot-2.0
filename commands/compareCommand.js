@@ -833,6 +833,7 @@ module.exports = {
                                     theText(playerA.victories,playerB.victories,"‖  Victories   ‖",true) + "\n" +
                                     theText(playerA.gamesplayed,playerB.gamesplayed,"‖ Games Played ‖",true) + "\n" +
                                     theText(Math.round(100*playerA.victories/(playerA.gamesplayed-playerA.victories))/100,Math.round(100*playerB.victories/(playerB.gamesplayed-playerB.victories))/100,"‖  W/L  Ratio  ‖",true) + "\n" +
+                                    theText(playerA.highscore,playerB.highscore,"‖  Highscore   ‖",true) +
                                     theText(playerA.tablescleared,playerB.tablescleared,"‖Tables Cleared‖",true) + "```", "gold")
                                 }).then(msg => checkDM(msg, message.channel.type));
                             }else{
@@ -1341,6 +1342,47 @@ module.exports = {
                          {
                             embed: embed("Error", "An error occured. Maybe you misspelled first player's name?", "red")
                         }).then(msg => checkDM(msg, message.channel.type));
+                    }
+                });
+                break;
+            case "ee":
+                if (message.channel.type != "dm" && config.settings.commandRemoval) {message.delete();}
+                req("http://api.hivemc.com/v1/player/" + args[1] + "/EE", function(error, response, body){
+                    //In case Hive's API has issues
+                    if (error){logging.legacyLog("URGENT HTTP ERROR")}
+                    //Grab all the information from the API,
+                    //and put it into a player Object
+                    var playerA = JSON.parse(body);
+                    if (playerA.UUID) {
+                        req("http://api.hivemc.com/v1/player/" + args[2] + "/EE", function(error2, response2, body2){
+                            //In case Hive's API has issues this time
+                            if (error2){logging.legacyLog("URGENT HTTP ERROR")}
+                            //Grab all the information from the API,
+                            //and put it into another player Object
+                            var playerB = JSON.parse(body2);
+                            if (playerB.UUID) {
+                                message.reply("",
+                                {
+                                embed: embed("Comparison of Exploding Eggs Stats of " + args[1] + " and " + args[2],
+                                    "```" + statsFormatting(args[1], false) + " ‖  Category  ‖ " + statsFormatting(args[2], true) + "\n" +
+                                    theText(playerA.points,playerB.points,"‖   Points   ‖",true) + "\n" +
+                                    theText(playerA.victories,playerB.victories,"‖ Victories  ‖",true) + "\n" +
+                                    theText(playerA.gamesplayed,playerB.gamesplayed,"‖Games Played‖",true) + "\n" +
+                                    theText(Math.round(100*playerA.victories/(playerA.gamesplayed-playerA.victories))/100,Math.round(100*playerB.victories/(playerB.gamesplayed-playerB.victories))/100,"‖ W/L  Ratio ‖",true) + "\n" +
+                                    theText(playerA.leaps,playerB.leaps,"‖   Leaps    ‖",true) + "```", "gold")
+                                }).then(msg => checkDM(msg, message.channel.type, divN));
+                            }else{
+                                message.reply("",
+                                 {
+                                    embed: embed("Error", "An error occured. Maybe you misspelled second player's name?", "red")
+                                }).then(msg => checkDM(msg, message.channel.type, divN));
+                            }
+                        });
+                    }else{
+                        message.reply("",
+                         {
+                            embed: embed("Error", "An error occured. Maybe you misspelled first player's name?", "red")
+                        }).then(msg => checkDM(msg, message.channel.type, divN));
                     }
                 });
                 break;

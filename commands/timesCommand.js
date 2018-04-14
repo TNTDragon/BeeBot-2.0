@@ -51,7 +51,7 @@ module.exports = {
     and actual command name has to be changed via commands.js
     ===============================================================
     */
-    description: "Showcases record times for Death Run and Gravity Maps",
+    description: "Showcases record times for Death Run and Gravity maps",
     usage: "-times {Game} {Player} <Page>",
     allowedInDM: true,
     allowedChannels: ["All"],

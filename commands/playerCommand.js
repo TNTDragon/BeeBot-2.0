@@ -51,7 +51,7 @@ module.exports = {
     and actual command name has to be changed via commands.js
     ===============================================================
     */
-    description: "Provides information about the requested player.",
+    description: "Provides information about the requested player",
     usage: "-player {Player}",
     allowedInDM: true,
     allowedChannels: ["All"],

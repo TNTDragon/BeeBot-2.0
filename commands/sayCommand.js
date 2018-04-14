@@ -19,7 +19,7 @@ module.exports = {
     call: function(message, args){
         if (args[0]==undefined) {
             if (message.channel.type != "dm" && config.settings.commandRemoval) {message.delete(config.settings.messageRemovalDelay);}
-            message.reply("The proper usage for the command is: " +
+            message.reply("The proper usage for the command is:" +
             "\n-say {Chat channel name} [delete] {Message}").then(msg => checkDM(msg, message.channel.type));
         } else {
             if (bot.guilds.get(secureConfig.serverID).channels.find("name", args[0]) != null && config.settings.adminChannels.includes(bot.guilds.get(secureConfig.serverID).channels.find("name", args[0]).id)) {
