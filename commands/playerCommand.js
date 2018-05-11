@@ -76,7 +76,7 @@ module.exports = {
                     //If player is offline, the above values are changed appropriately
                     if (hiveData.status.description == "Currently hibernating in") {
                         color = "gray";
-						onlineCheck = "\n`" + hiveData.username + "` was last seen on the " + timeConverter(hiveData.lastLogout)
+						onlineCheck = hiveData.username + "` was last seen on the " + timeConverter(hiveData.lastLogout)
                     }
                     message.reply("",
                     {
@@ -86,8 +86,8 @@ module.exports = {
                             "\n**Lucky Crates Owned**: " + hiveData.crates +
                             "\n**Golden Medals Collected**: " + hiveData.medals +
                             "\n`" + hiveData.username + "` has " + Object.keys(hiveData.achievements).length + " Global Achievements and " + hiveData.trophies.length + " trophies" +
-                            "\n`" + hiveData.username + "` has first logged on the " + timeConverter(hiveData.firstLogin) + 
-							onlineCheck, color, "https://crafatar.com/avatars/" + hiveData.UUID + "?overlay", "https://hivemc.com/player/" + hiveData.username)
+                            "\n`" + hiveData.username + "` has first joined on the " + timeConverter(hiveData.firstLogin) +
+							"\n`" + onlineCheck, color, "https://crafatar.com/avatars/" + hiveData.UUID + "?overlay", "https://hivemc.com/player/" + hiveData.username)
                     }).then(msg => checkDM(msg, message.channel.type));
                 //If the player is not found, error will pop up
                 }else{

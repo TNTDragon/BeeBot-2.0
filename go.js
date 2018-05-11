@@ -2,6 +2,8 @@
 
 //config
 config = require("./config.json");
+//bot information
+botInfo = require("./package.json");
 //discord library
 const dc = require("discord.js");
 //web request library

@@ -3,7 +3,7 @@
 module.exports = {
 	levels: require("./levelsCommand.js"),
     times: require("./timesCommand.js"),
-    uptime: require("./uptimeCommand.js"),
+    info: require("./infoCommand.js"),
     shutdown: require("./shutdownCommand.js"),
     stats: require("./statsCommand.js"),
     say: require("./sayCommand.js"),

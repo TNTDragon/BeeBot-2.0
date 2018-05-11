@@ -1,24 +1,62 @@
 //Calculator of Time Alive in Hide and Seek
-//It's very basic and not too accurate, but
-//it somewhat counteracts the broken API
+//It may seem basic, but it's elaborate,
+//and it works fairly well so hooray!
 function hideTimeAlive(hiveData) {
     var temp = "";
     //First, check if the time stat is correct
-    if (Math.abs(hiveData.timealive)<13302000) {
+    //The number it checks has to be big, so it is
+    //set to almost 8* more than highest I could find
+    if (hiveData.timealive<9936000 && hiveData.timealive>0) {
+        //If the data falls within the ]0,9936000[ range,
+        //a simple information is displayed.
         temp = "\'s time alive is: " + Math.floor(hiveData.timealive/86400) + " d. " + Math.floor((hiveData.timealive%86400)/3600) + " h, " + Math.floor((hiveData.timealive%3600)/60) + " min and " + Math.floor(hiveData.timealive%60) + " s";
     } else {
-    //If users stats are glitched, this will attempt to
-    //reverse the process. It's nowhere close perfectiong,
-    //but with the unpredictable bug it's best that can be done.
-        var newTimeAlive;
-        newTimeAlive = hiveData.total_points - 30*hiveData.seekerkills - 50*hiveData.victories;
-        //Now check if the new value is positive, and somewhat reasonable
-        if (newTimeAlive>0 && newTimeAlive<4320000) {
-            temp = "\'s time alive is ≈" + Math.floor(newTimeAlive/86400) + " days and " + Math.floor((newTimeAlive%86400)/3600) + " hours\n*This time has been estimated and may not be fully accurate*";
-        } else {
-        //If nothing else works
-            temp = "*\'s time alive is glitched :(*";
+        /* In case the user stats are glitched
+        This will somewhat accurately estimate the time alive of someone affected by the glitch
+        The system comes within a consistent 2 (or less) hour accuracy range for most test players
+
+        How it works:
+         Basically, it attempts to estimate how many points the player has earned from staying alive,
+        by subtracting all other factors that were at play. A small issue is that the point system
+        has considerably changed over the years, hence the estimations.
+
+        Explanation:
+         maxTimeAlive is the absolute highest timeAlive a person could have without some sort of a bug.
+            It takes your total points and takes away 20 points per seeker kill and 10 points per hider kill
+            This was the lowest pointage I could find for all actions, as wins used to not give points for hiders
+         minTimeAlive  is the absolute lowest timeAlive a person can get, period. It can be negative at times
+            It takes your total points, and takes away 30 per seeker kill, 10 per hider kill, 50 per win,
+            as well as 50 points per game played, which is an estimated number of points gotten from taunting
+            (there is 300 seconds to taunt, with 1/4pps gives 75, which is rounded to 50 since people will
+            seek in some games, die before their hider game ends, or simply not use the taunts perfectly)
+         statisticalConstant
+            This is a constant gotten from averaging over 900 users' ratio of maxTimeAlive to minTimeAlive,
+            and looking at where their actual timeAlive falls in-between the two.
+
+        The Loop:
+         There is a for loop in the code which goes through multiples of the statisticalConstant in it's equation.
+        That's there due to small statistical chance that a player wil still be in the negative timeAlive region after
+        estimating their timeAlive. It's around a 2% chance within a single iteration, less than 0.5% with second, and even
+        lower with the third one. Doing a fourth iteration would be wrong, as 4*statisticalConstant > 1, hence why if the
+        newTimeAlive is still <0 after the loop is over, it is simply set to maxTimeAlive which, by definition, has to be
+        positive, and if it truly required that, it means it's most likely fairly low in comparison to minTimeAlive
+        */
+        var newTimeAlive,maxTimeAlive,minTimeAlive;
+        maxTimeAlive = (hiveData.total_points - 20*hiveData.seekerkills - 10*hiveData.hiderkills)*2 + hiveData.gamesplayed/2;
+        minTimeAlive = (hiveData.total_points - 30*hiveData.seekerkills - 10*hiveData.hiderkills - 50*hiveData.victories - 50*hiveData.gamesplayed)*2 + hiveData.gamesplayed/2;
+        newTimeAlive = 0;
+        var statisticalConstant = 0.2968633091;
+        for (i=1;i<4;i++) {
+            if (((maxTimeAlive-minTimeAlive)*i*statisticalConstant + minTimeAlive)>0) {
+                newTimeAlive = (maxTimeAlive-minTimeAlive)*i*statisticalConstant + minTimeAlive;
+                i=4;
+            }
         }
+        if (newTimeAlive==0) {
+            newTimeAlive = maxTimeAlive;
+        }
+        //Since this is an estimated time, it is displayed with a one hour accuracy
+        temp = "\'s time alive is ≈" + Math.floor(newTimeAlive/86400) + " days and " + Math.floor((newTimeAlive%86400)/3600) + " hours\n*This time has been estimated and may not be fully accurate*";
     }
     return temp;
 }
@@ -1064,6 +1102,7 @@ module.exports = {
                             " • Bed Wars - BED\n" +
                             " • Cowboys and Indians - CAI\n" +
                             " • DeathRun - DR\n" +
+                            " • Exploding Eggs - EE\n" +
                             " • Gravity - GRAV\n" +
                             " • Hide and Seek - HIDE\n" +
                             " • Murder in Mineville - MIMV\n" +

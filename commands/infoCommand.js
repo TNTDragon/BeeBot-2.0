@@ -12,15 +12,18 @@ module.exports = {
     and actual command name has to be changed via commands.js
     ===============================================================
     */
-    description: "Provides the uptime of the current BeeBot 2.0 instance",
-    usage: "-uptime",
+    description: "Provides information on the current BeeBot 2.0 instance.",
+    usage: "-info",
     allowedInDM: false,
     allowedChannels: [secureConfig.logChannelID],
     call: function(message, args){
-        logging.log("Current Uptime", "BeeBot 2.0 has been up for:\n" +
+        logging.log("Bot information", "**BeeBot 2.0 has been up for:** " +
+            "\n" +
             Math.floor(bot.uptime / 86400000) + " days\n" +
             Math.floor(bot.uptime / 3600000 % 24) + " hours\n" +
             Math.floor(bot.uptime / 60000 % 60) + " minutes and\n" +
-            Math.floor(bot.uptime / 1000 % 60) + " seconds.", "blue");
+            Math.floor(bot.uptime / 1000 % 60) + " seconds.\n\n" +
+            "**Current Bot Version:** " + botInfo.version + "\n" +
+            "**Bot License:** " + botInfo.license, "blue");
     }
 };
