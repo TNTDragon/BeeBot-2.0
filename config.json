@@ -9,7 +9,7 @@
     "advertisement": true
   },
   "filter": {
-    "blockList":["fgt","faggot","faggott","shit","prick", "wtf", "bullshit", "dick", "wanker", "bollocks", "niggi", "niggah", "niggur", "twat", "fuck", "lmfao", "nigger", "cunt", "bastard", "nigga", "nigger", "kys", "asshole", "asshat", "bitch", "stfu","milf"],
+    "blockList":["fgt","faggot","faggott","shit","prick", "wtf", "bullshit", "dick", "wanker", "bollocks", "niggi", "niggah", "niggur", "twat", "fuck", "lmfao", "nigger", "cunt", "bastard", "nigga", "nigger", "kys", "asshole", "asshat", "bitch", "stfu", "milf", "ffs"],
     "exemptedChannels": ["1234567890","1234567890"]
   },
   "blocks": {
@@ -37,7 +37,7 @@
     "QUARTZ_STAIRS": "Quartz Stairs",
     "REDSTONE_ORE": "Redstone Ore",
     "SNOW_BLOCK": "Snow",
-    "DIAMOND_BLOCK": "Block of Diamondk",
+    "DIAMOND_BLOCK": "Block of Diamond",
     "FURNACE": "Furnace",
     "TNT": "TNT",
     "QUARTZ_ORE": "Quartz Ore",

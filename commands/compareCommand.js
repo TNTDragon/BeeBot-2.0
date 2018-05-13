@@ -660,7 +660,7 @@ module.exports = {
                                     theText(playerA.points,playerB.points,"‖   Points   ‖",true) + "\n" +
                                     theText(playerA.victories,playerB.victories,"‖ Victories  ‖",true) + "\n" +
                                     theText(playerA.gamesplayed,playerB.gamesplayed,"‖Games Played‖",true) + "\n" +
-                                    theText(Math.round(100*playerA.victories/(playerA.games_played-playerA.victories))/100,Math.round(100*playerB.victories/(playerB.games_played-playerB.victories))/100,"‖ W/L  Ratio ‖",true) + "\n" + "```", "gold")
+                                    theText(Math.round(100*playerA.victories/(playerA.gamesplayed-playerA.victories))/100,Math.round(100*playerB.victories/(playerB.gamesplayed-playerB.victories))/100,"‖ W/L  Ratio ‖",true) + "\n" + "```", "gold")
                                 }).then(msg => checkDM(msg, message.channel.type));
                             }else{
                                 message.reply("",
@@ -1417,6 +1417,7 @@ module.exports = {
                             " • Bed Wars - BED\n" +
                             " • Cowboys and Indians - CAI\n" +
                             " • DeathRun - DR\n" +
+                            " • Explosive Eggs - EE" + "\n" +
                             " • Gravity - GRAV\n" +
                             " • Hide and Seek - HIDE\n" +
                             " • Murder in Mineville - MIMV\n" +

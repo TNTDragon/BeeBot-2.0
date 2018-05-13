@@ -49,7 +49,7 @@ Black = unassigned (default)
 
 You can easily contact me (TNT Dragon) on Hive's Community Hub, linked below. Said Discord is also (currently) linked at the bottom of -stats commands, but you can disable that in the settings.
 
-If you have troubles with installing sodium for the bot, you can use the link below to grab a working version and put it in your npm_modules folder.
+If you have troubles with installing sodium for the bot, you can use the link below to grab a working version and put it in your npm_modules folder. Additionally, you can also download the icon for BeeBot from the link below, courtesy of Adeerable.
 
 ## Links ##
 
@@ -58,3 +58,5 @@ If you have troubles with installing sodium for the bot, you can use the link be
 [Forum post](https://forum.hivemc.com/threads/beebot-2-0-discord-bot-for-hive-players.299018/)
 
 [Sodium download](https://drive.google.com/file/d/1E-AjE6b9mTCE8OwOqy5gUrilsOY2BuN7/view)
+
+[BeeBot Icon](https://i.imgur.com/w3UEFHc.png)
