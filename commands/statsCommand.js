@@ -52,7 +52,7 @@ function hideTimeAlive(hiveData) {
                 i=4;
             }
         }
-        if (newTimeAlive==0) {
+        if (newTimeAlive<=0) {
             newTimeAlive = maxTimeAlive;
         }
         //Since this is an estimated time, it is displayed with a one hour accuracy
@@ -99,7 +99,7 @@ module.exports = {
     allowedInDM: true,
     allowedChannels: ["All"],
     call: function(message, args){
-        if (args[0]==undefined) {
+        if (args[0]==undefined || args[1]==undefined) {
             if (message.channel.type != "dm" && config.settings.commandRemoval) {message.delete(config.settings.messageRemovalDelay);}
             message.reply("The proper usage for the command is: " +
             "\n-stats {Game Code} {Players}"+
@@ -136,7 +136,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -172,7 +172,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -217,7 +217,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -250,7 +250,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -281,7 +281,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -316,7 +316,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -347,7 +347,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -379,7 +379,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -410,7 +410,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -443,7 +443,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -475,7 +475,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -506,7 +506,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -539,7 +539,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -570,7 +570,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -605,7 +605,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -636,7 +636,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -668,7 +668,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -701,7 +701,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -738,7 +738,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -770,7 +770,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -802,7 +802,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -834,7 +834,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -871,7 +871,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -905,7 +905,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -939,7 +939,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -972,7 +972,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -1003,7 +1003,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -1036,7 +1036,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -1066,7 +1066,7 @@ module.exports = {
                         message.reply("",
                             {
                                 embed: embed("Error",
-                                    "An error occured.\nMaybe you misspelled the player's name?", "red")
+                                    "An error occurred.\nMaybe you misspelled the player's name?", "red")
                              }).then(msg => checkDM(msg, message.channel.type, divN));
                         }
                     });

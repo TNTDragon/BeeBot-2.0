@@ -7,7 +7,7 @@ function deathRunTime(valu) {
 };
 //Converts miliseconds into a timestamp
 function gravityTime(valu) {
-    var temp = "Map not played";
+    var temp = "Map not played\n";
     if (valu != "N/A") {
         var minutes = "";
         if ((valu/60000)>1) {
@@ -57,7 +57,7 @@ module.exports = {
     allowedChannels: ["All"],
     call: function(message, args){
         //In case the user forgets to specify a player
-        if (args[0] == undefined) {
+        if (args[0]==undefined || args[1]==undefined) {
             if (message.channel.type != "dm" && config.settings.commandRemoval) {message.delete(config.settings.messageRemovalDelay);}
             message.reply("The proper usage of this command is `-times [DeathRun/Gravity] {PLAYER} <PAGE>`").then(msg => checkDM(msg, message.channel.type));
         } else {
