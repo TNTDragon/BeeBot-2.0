@@ -898,12 +898,7 @@ module.exports = {
                                  {
                                     embed: embed("Error", "An error occurred. Maybe you misspelled second player's name?", "red")
                                 }).then(msg => checkDM(msg, message.channel.type));
-                            }else{
-                                message.reply("",
-                                 {
-                                    embed: embed("Error", "An error occurred. Maybe you misspelled second player's name?", "red")
-                                }).then(msg => checkDM(msg, message.channel.type));
-                                }
+                            }
                         });
                     }else{
                         message.reply("",
