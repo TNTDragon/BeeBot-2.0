@@ -1,10 +1,3 @@
-//Converts seconds into a time stamp
-function deathRunTime(valu) {
-    var temp = "Map not played";
-    if (valu != "N/A") {
-        temp = Math.floor(valu/60) + ":" + Math.floor((valu % 60)/10) + "" + (valu%10);
-    } return temp;
-};
 //Converts miliseconds into a timestamp
 function gravityTime(valu) {
     var temp = "Map not played\n";
@@ -57,85 +50,15 @@ module.exports = {
     allowedChannels: ["All"],
     call: function(message, args){
         //In case the user forgets to specify a player
-        if (args[0]==undefined || args[1]==undefined) {
+        if (args[0]==undefined) {
             if (message.channel.type != "dm" && config.settings.commandRemoval) {message.delete(config.settings.messageRemovalDelay);}
             message.reply("The proper usage of this command is `-times [DeathRun/Gravity] {PLAYER} <PAGE>`").then(msg => checkDM(msg, message.channel.type));
         } else {
-        /*  The DeathRun and Gravity code is completely independent
-        If you	want, you can remove one or the other
-        And simply have -times [Player] in your server
-        That will only return one of the gamemodes.
-        You will need to replace all the occurrences
-        of args[1] with args[0] and args[2] with args[1]
-        */
-        if ((args[0].toLowerCase()=="deathrun")||(args[0].toLowerCase()=="dr")) {
-            req("http://api.hivemc.com/v1/game/dr/maps", function (error, response, body) {
+            req("http://api.hivemc.com/v1/game/grav/maps", function (error, response, body) {
                 if (message.channel.type != "dm" && config.settings.commandRemoval) {message.delete();}
                 if (error){logging.legacyLog("URGENT HTTP ERROR")}
                 var hiveData = JSON.parse(body);
-                req("http://api.hivemc.com/v1/player/" + args[1] + "/DR", function (error, response, body) {
-                    if (error){logging.legacyLog("URGENT HTTP ERROR")}
-                    var hivePlayerData = JSON.parse(body);
-                    //proceeds with the command if the user is found in the API
-                    if (hivePlayerData.UUID) {
-                    //Creates an object with map names and
-                    //their appropriate times (or N/A)
-                    var playertimes = Object.keys(hiveData).map(function(e) {
-                        var time = "N/A";
-                        if (hivePlayerData.maprecords[e] != undefined) {
-                            temp = hivePlayerData.maprecords[e];
-                        }
-                        return [temp, hiveData[e].mapname];
-                    //This will sort the list alphabetically
-                    }).sort(function(a,b){
-                        if(a[1] < b[1]) return -1;
-                        if(a[1] > b[1]) return 1;
-                        return 0;
-                    });
-                    //Deciding what page to show the user
-                    //By default each page has 10 entries
-					var pageEntries = 10;
-                    if (args[2] == undefined || isNaN(args[2])) {
-                        var listPage = 1;
-                    } else if (args[2] > Math.ceil(playertimes.length/pageEntries)) {
-                        var listPage = Math.ceil(playertimes.length/pageEntries);
-                    } else {
-                        var listPage = parseInt(args[2]);
-                    }
-                    /*  Creates the records list
-                    The following sequence will order all the data into a
-                    coherent list of records as requested per player,
-                    and clean up after itself when done
-                    */
-                    var messageList = "";
-                    for (i=(listPage*pageEntries-pageEntries); i<listPage*pageEntries && i<playertimes.length; i++) {
-                        messageList += "• **" + playertimes[i][1] + "** - " + deathRunTime(playertimes[i][0]) + "\n";
-                    }
-                    messageList += "*Showing page " + listPage + " out of " + Math.ceil(playertimes.length/pageEntries) + "*\n";
-                    if (listPage<Math.ceil(playertimes.length/pageEntries)) {
-                        messageList += "\nUse `-times DeathRun " + args[1] + " " + (listPage+1) + "` for the next page.";
-                    }
-                    message.reply("",
-                        {
-                            embed: embed("Death Run Records for `" + args[1] + "`",
-                            messageList, "gold")
-                        }    
-                    ).then(msg => checkDM(msg, message.channel.type));
-                    }else{
-                        message.reply("",
-                        {
-                            embed: embed("Error",
-                                "An error occured.\nMaybe you misspelled the player's name?", "red")
-                        }).then(msg => checkDM(msg, message.channel.type));
-                    }
-                });
-            });
-        } else if ((args[0].toLowerCase()=="gravity")||(args[0].toLowerCase()=="grav")) {
-             req("http://api.hivemc.com/v1/game/grav/maps", function (error, response, body) {
-                if (message.channel.type != "dm" && config.settings.commandRemoval) {message.delete();}
-                if (error){logging.legacyLog("URGENT HTTP ERROR")}
-                var hiveData = JSON.parse(body);
-                req("http://api.hivemc.com/v1/player/" + args[1] + "/grav", function (error2, response2, body2) {
+                req("http://api.hivemc.com/v1/player/" + args[0] + "/grav", function (error2, response2, body2) {
                     if (error2){logging.legacyLog("URGENT HTTP ERROR")}
                     var hivePlayerData = JSON.parse(body2);
                     //proceeds with the command if the user is found in the API
@@ -190,12 +113,12 @@ module.exports = {
                 //Deciding what page to show the user
                 //By default each page has 10 entries
 				var pageEntries = 10;
-                if (args[2] == undefined || isNaN(args[2])) {
+                if (args[1] == undefined || isNaN(args[1])) {
                     var listPage = 1;
-                } else if (args[2] > Math.ceil(playertimes.length/pageEntries)) {
+                } else if (args[1] > Math.ceil(playertimes.length/pageEntries)) {
                     var listPage = Math.ceil(playertimes.length/pageEntries);
                 } else {
-                    var listPage = parseInt(args[2]);
+                    var listPage = parseInt(args[1]);
                 }
                 /*  Creates the records list
                 The following sequence will order all the data into a
@@ -208,11 +131,11 @@ module.exports = {
                 }
                 messageList += "*Showing page " + listPage + " out of " + Math.ceil(playertimes.length/pageEntries) + "*\n";
                 if (listPage<Math.ceil(playertimes.length/pageEntries)) {
-                    messageList += "\nUse `-times Gravity " + args[1] + " " + (listPage+1) + "` for the next page.";
+                    messageList += "\nUse `-times Gravity " + args[0] + " " + (listPage+1) + "` for the next page.";
                 }
                 message.reply("",
                     {
-                        embed: embed("Gravity Records for `" + args[1] + "`",
+                        embed: embed("Gravity Records for `" + args[0] + "`",
                         messageList, "gold")
                     }    
                 ).then(msg => checkDM(msg, message.channel.type));
@@ -220,7 +143,7 @@ module.exports = {
                     message.reply("",
                     {
                         embed: embed("Error",
-                            "An error occured.\mMaybe you misspelled the player's name?", "red")
+                            "An error occured.\nMaybe you misspelled the player's name?", "red")
                     }).then(msg => checkDM(msg, message.channel.type));
                 }
                 });
