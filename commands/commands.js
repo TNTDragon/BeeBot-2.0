@@ -9,5 +9,7 @@ module.exports = {
     say: require("./sayCommand.js"),
     help: require("./helpCommand.js"),
     compare: require("./compareCommand.js"),
-    player: require("./playerCommand.js")
+    player: require("./playerCommand.js"),
+    records: require("./recordsCommand.js"),
+    dr: require("./recordsCommand.js")
 };
