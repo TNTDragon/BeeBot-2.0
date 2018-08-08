@@ -1,10 +1,10 @@
 //This function will react with thumbs up and down
 //Whenever a simple poll is created
 function addSimpleReactions(message) {
-    message.react(👍).catch(function () {
+    message.react("👍").catch(function () {
         logging.legacyLog("Fatal Error in adding agree rating.");
     });
-   setTimeout(function() {message.react(👎).catch(function () {
+   setTimeout(function() {message.react("👎").catch(function () {
         logging.legacyLog("Fatal Error in adding disagree rating.");
     })}, 1000);
     //timeout exists so that agree is always before disagree
