@@ -24,10 +24,24 @@ function checkDM(msg, DM) {
     }
 };
 module.exports = {
-    description: "Showcases various records from DeathRun. By default shows lowest times for map completion, add `-k` or `-d` at the end to show total deaths or highest kills respectively for each map.",
-    usage: "-records {Player} [Page] [-t|-d|-k]",
+    /* Command Information
+    ===============================================================
+    If you'd wish to change the description of a command,
+    or where it can be executed, here is where you do that.
+
+    By default all commands have "All" channels allowed,
+    to limit it put channel ID's within "" and separate by commas.
+    Example:
+    allowedChannels: ["321251232131","1579213910451"],
+
+    Please note that description and usage is only visible in -help,
+    and actual command name has to be changed via commands.js
+    ===============================================================
+    */
+    description: "Showcases various records from DeathRun. By default shows lowest times for map completion, add `-d` or `-k` at the end to show total deaths or highest kills respectively for each map.",
+    usage: "-records {Player} [Page] [-d|-k]",
     allowedInDM: true,
-    allowedChannels: ["281725164247449600","262702429282238465","335817153603305473"],
+    allowedChannels: ["All"],
     call: function(message, args){
         if (args[0]==undefined) {
             message.reply("The proper usage of this command is `-records {Player} [Page]`\nYou can add `-d` or `-k` at the end for different record lists").then(msg => checkDM(msg, message.channel.type));

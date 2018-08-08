@@ -9,7 +9,7 @@ const dc = require("discord.js");
 //web request library
 req = require("request");
 /* utility modules (self-written)
-embed = rich embedding present in most commaandsd
+embed = rich embedding present in most commands
 filter = chat filter module
 logging = logging module
 */

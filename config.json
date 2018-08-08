@@ -6,12 +6,14 @@
 	"messageRemovalDelay": 30000,
 	"swearFilter": true,
 	"idleBotResponse": "You can use `-help` to see the commands I can do!",
-    "advertisement": true
+    "advertisement": true,
+    "pollChannelID": "1234567890"
   },
   "filter": {
     "blockList":["fgt","faggot","faggott","shit","prick", "wtf", "bullshit", "dick", "wanker", "bollocks", "niggi", "niggah", "niggur", "twat", "fuck", "lmfao", "nigger", "cunt", "bastard", "nigga", "nigger", "kys", "asshole", "asshat", "bitch", "stfu", "milf", "ffs"],
     "exemptedChannels": ["1234567890","1234567890"]
   },
+  "emojiCodes": ["🇦","🇧","🇨","🇩","🇪","🇫","🇬","🇭","🇮","🇯","🇰","🇱","🇲","🇳","🇴","🇵","🇶","🇷","🇸","🇹"],
   "blocks": {
     "PUMPKIN": "Pumpkin",
     "JUKEBOX": "Jukebox",
@@ -57,6 +59,15 @@
 	"WOOD:3": "Jungle Wood Planks",
 	"HARD_CLAY": "Hardened Clay",
 	"STONE:6": "Polished Andesite",
-	"WOOL": "White Wool"
+	"WOOL": "White Wool",
+    "BRICK": "Bricks",
+    "GOLD_ORE": "Gold Ore",
+    "WOOD:2": "Birch Wood Planks",
+    "STAINED_CLAY:5": "Lime Stained Clay",
+    "LOG:3": "Jungle Log",
+    "CAULDRON": "Cauldron",
+    "NOTE_BLOCK": "Note Block",
+    "STONE:2": "Polished Granite",
+    "SPRUCE_WOOD_STAIRS": "Spruce Wood Stairs"
   }
 }
