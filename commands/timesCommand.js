@@ -1,5 +1,5 @@
 //Converts miliseconds into a timestamp
-function timeG(valu) {
+function gravityTime(valu) {
     var temp = "Map not played\n";
     if (valu != "N/A") {
         var minutes = seconds = descriptor = "";
