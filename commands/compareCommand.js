@@ -72,7 +72,7 @@ module.exports = {
     Example:
     allowedChannels: ["321251232131","1579213910451"],
 
-    Please not that description and usage is only visible in -help,
+    Please note that description and usage is only visible in -help,
     and actual command name has to be changed via commands.js
     ===============================================================
     */
@@ -755,7 +755,7 @@ module.exports = {
                                     theText(playerA.points,playerB.points,"*      Points      *",true) + "\n" +
                                     theText(playerA.victories,playerB.victories,"*    Victories     *",true) + "\n" +
                                     theText(playerA.gamesplayed,playerB.gamesplayed,"*   Games Played   *",true) + "\n" +
-                                    theText(Math.round(100*playerA.victories/(playerA.gamesplayed-playerA.victories))/100,Math.round(100*playerB.victories/(playerB.gamesplayed-playerB.victories))/100,"*   W/L  Ratio    *",true) + "\n" +
+                                    theText(Math.round(100*playerA.victories/(playerA.gamesplayed-playerA.victories))/100,Math.round(100*playerB.victories/(playerB.gamesplayed-playerB.victories))/100,"*    W/L  Ratio    *",true) + "\n" +
                                     theText(playerA.eggsfired,playerB.eggsfired,"*    Eggs Fired    *",true) + "\n" +
                                     theText(playerA.blocksdestroyed,playerB.blocksdestroyed,"* Blocks Destroyed *",true) + "\n" +
                                     theText(Math.round(100*playerA.blocksdestroyed/playerA.eggsfired)/100,Math.round(100*playerB.blocksdestroyed/playerB.eggsfired)/100,"*     Accuracy     *",true) + "\n" +

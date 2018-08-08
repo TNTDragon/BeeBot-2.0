@@ -1,5 +1,6 @@
 module.exports = function (title, msg, color, thumb,urlLink) {
     var colour;
+    //The image this links to is a simple transparent square
 	if (typeof thumb === 'undefined' || thumb == "empty") { thumb = "https://i.imgur.com/rK0V3uO.png"; }
     if(color == "red"){
         colour = 0xe51400;
@@ -16,6 +17,8 @@ module.exports = function (title, msg, color, thumb,urlLink) {
         colour = 0x808080;
     }else if(color == "orange"){
 		colour = 0xff6600;
+    }else if(color == "pink"){
+        colour = 0xffb0ff;
     }else{
         colour = 0x333333;
     }

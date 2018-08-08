@@ -8,7 +8,7 @@ module.exports = {
     Example:
     allowedChannels: ["321251232131","1579213910451"],
 
-    Please not that description and usage is only visible in -help,
+    Please note that description and usage is only visible in -help,
     and actual command name has to be changed via commands.js
     ===============================================================
     */

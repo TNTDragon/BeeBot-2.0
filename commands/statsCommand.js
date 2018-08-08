@@ -90,7 +90,7 @@ module.exports = {
     Example:
     allowedChannels: ["321251232131","1579213910451"],
 
-    Please not that description and usage is only visible in -help,
+    Please note that description and usage is only visible in -help,
     and actual command name has to be changed via commands.js
     ===============================================================
     */
@@ -207,7 +207,7 @@ module.exports = {
                                     "\n**Deaths:** " + hiveData.deaths +
                                     "\n**Blocks Painted:** " + hiveData.blocks_painted +
                                     "\n**Ultimates Earned:** " + hiveData.ultimates_earned +
-                                    "\n**Characters K/D Ratios:** " +
+                                    "\n\n**Characters K/D Ratios:** " +
                                     oinky +
                                     raven +
                                     booster +
@@ -437,7 +437,7 @@ module.exports = {
                                     "\n**Hiders Killed:** " + hiveData.seekerkills +
                                     "\n**Seekers Killed:** " + hiveData.hiderkills +
                                     "\n**Deaths:** " + hiveData.deaths +
-                                    "\n`" + args[1] + "`" + hideTimeAlive(hiveData) + advertisement, "gold","https://crafatar.com/renders/body/"+ hiveData.UUID.toString() +"?overlay", "https://hivemc.com/player/" + args[1])
+                                    "\n\n`" + args[1] + "`" + hideTimeAlive(hiveData) + advertisement, "gold","https://crafatar.com/renders/body/"+ hiveData.UUID.toString() +"?overlay", "https://hivemc.com/player/" + args[1])
                              }).then(msg => checkDM(msg, message.channel.type));
                     }else{
                         message.reply("",

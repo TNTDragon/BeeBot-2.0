@@ -19,6 +19,7 @@ function timeConverter(UNIX_timestamp){
         var dateEnd = "th";
         break;
     }
+    if (Math.floor(date/10)==1) {dateEnd = "th";}
     var hour = a.getHours();
     var min = a.getMinutes();
     if (min<10) {
@@ -47,7 +48,7 @@ module.exports = {
     Example:
     allowedChannels: ["321251232131","1579213910451"],
 
-    Please not that description and usage is only visible in -help,
+    Please note that description and usage is only visible in -help,
     and actual command name has to be changed via commands.js
     ===============================================================
     */

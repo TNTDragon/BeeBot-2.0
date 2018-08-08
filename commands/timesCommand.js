@@ -1,17 +1,16 @@
 //Converts miliseconds into a timestamp
-function gravityTime(valu) {
+function timeG(valu) {
     var temp = "Map not played\n";
     if (valu != "N/A") {
-        var minutes = "";
+        var minutes = seconds = descriptor = "";
         if ((valu/60000)>1) {
-            minutes = Math.floor(valu/60000);
-        }
-        var seconds = "";
+            minutes = Math.floor(valu/60000) + ":";
+        } else {descriptor = "seconds";}
         if ((valu/10000) > 1) {
             seconds += Math.floor((valu % 60000)/10000);
         }
         seconds += Math.floor((valu%10000)/1000);
-        var miliseconds = "";
+        var miliseconds = ".";
         if ((valu%1000)/100 < 1) {
             miliseconds += "0";
             if ((valu%100)/10 < 1) {
@@ -19,7 +18,7 @@ function gravityTime(valu) {
             }
         }
         miliseconds += (valu % 1000);
-        temp = minutes + ":" + seconds + "." + miliseconds + " seconds\n";
+        temp = minutes + seconds + miliseconds + " " + descriptor + "\n";
     } return temp;
 };
 //checkDM will delete the bots message if it's not sent via a DM.
@@ -40,19 +39,19 @@ module.exports = {
     Example:
     allowedChannels: ["321251232131","1579213910451"],
 
-    Please not that description and usage is only visible in -help,
+    Please note that description and usage is only visible in -help,
     and actual command name has to be changed via commands.js
     ===============================================================
     */
-    description: "Showcases record times for Death Run and Gravity maps",
-    usage: "-times {Game} {Player} <Page>",
+    description: "Showcases record times for various Gravity maps",
+    usage: "-times {Player} <Page>",
     allowedInDM: true,
     allowedChannels: ["All"],
     call: function(message, args){
         //In case the user forgets to specify a player
         if (args[0]==undefined) {
             if (message.channel.type != "dm" && config.settings.commandRemoval) {message.delete(config.settings.messageRemovalDelay);}
-            message.reply("The proper usage of this command is `-times [DeathRun/Gravity] {PLAYER} <PAGE>`").then(msg => checkDM(msg, message.channel.type));
+            message.reply("The proper usage of this command is `-times {PLAYER} <PAGE>`").then(msg => checkDM(msg, message.channel.type));
         } else {
             req("http://api.hivemc.com/v1/game/grav/maps", function (error, response, body) {
                 if (message.channel.type != "dm" && config.settings.commandRemoval) {message.delete();}
@@ -131,7 +130,7 @@ module.exports = {
                 }
                 messageList += "*Showing page " + listPage + " out of " + Math.ceil(playertimes.length/pageEntries) + "*\n";
                 if (listPage<Math.ceil(playertimes.length/pageEntries)) {
-                    messageList += "\nUse `-times Gravity " + args[0] + " " + (listPage+1) + "` for the next page.";
+                    messageList += "\nUse `-times " + args[0] + " " + (listPage+1) + "` for the next page.";
                 }
                 message.reply("",
                     {

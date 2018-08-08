@@ -16,7 +16,7 @@ module.exports = {
     Example:
     allowedChannels: ["321251232131","1579213910451"],
 
-    Please not that description and usage is only visible in -help,
+    Please note that description and usage is only visible in -help,
     and actual command name has to be changed via commands.js
     ===============================================================
     */
@@ -47,7 +47,8 @@ module.exports = {
                 for (i=0; i<commands.length;i++) {
                     //looks for the index of the command, and then
                     //checks if it is allowed in Direct Messages
-                    if (commands[i][0]==c && commands[i][3]) {return[c, commands[i][1], commands[i][2], "\n"];}
+                    //also ignores commands that are shorter versions of other commands
+                    if (commands[i][0]==c && commands[i][3] && !(c=="dr")) {return[c, commands[i][1], commands[i][2], "\n"];}
                 }
             //Sorts the commands alphabetically
             }).sort(function(a,b){
@@ -104,7 +105,8 @@ module.exports = {
                 for (i=0; i<commands.length;i++) {
                     //looks for the index of the command, and then
                     //checks if it's executable in the given channel
-                    if (commands[i][0]==c && (channels[c].includes(message.channel.id) || channels[c].includes("All"))) {return[c, commands[i][1], commands[i][2], "\n"];}
+                    //also ignores commands that are shorter versions of other commands
+                    if (commands[i][0]==c && (channels[c].includes(message.channel.id) || channels[c].includes("All")) && !(c=="dr")) {return[c, commands[i][1], commands[i][2], "\n"];}
                 }
             //Sorts the commands alphabetically
             }).sort(function(a,b){
