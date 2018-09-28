@@ -1043,7 +1043,7 @@ module.exports = {
                             //and put it into another player Object
                             var playerB = JSON.parse(body2);
                             if (playerB.UUID) {
-                                message.reply("**Comparison of Bed Wars Stats of " + args[1] + " and " + args[2] + "**\n" +
+                                message.reply("**Comparison of Total Bed Wars Stats of " + args[1] + " and " + args[2] + "**\n" +
                                     "```md\n" + statsFormatting(args[1], false, true) + "> *     Category     * <" + statsFormatting(args[2], true, true) + "\n" +
                                     theText(playerA.total_points,playerB.total_points,"*      Points      *",true) + "\n" +
                                     theText(playerA.victories,playerB.victories,"*    Victories     *",true) + "\n" +
@@ -1055,7 +1055,8 @@ module.exports = {
                                     theText(Math.round(100*playerA.kills/playerA.deaths)/100,Math.round(100*playerB.kills/playerB.deaths)/100,"*    K/D  Ratio    *",true) + "\n" +
                                     theText(playerA.beds_destroyed,playerB.beds_destroyed,"*  Beds destroyed  *",true) + "\n" +
                                     theText(Math.round(100*playerA.beds_destroyed/playerA.games_played)/100,Math.round(100*playerB.beds_destroyed/playerB.games_played)/100,"* Beds  Per  Game  *",true) + "\n" +
-                                    theText(playerA.teams_eliminated,playerB.teams_eliminated,"* Teams Eliminated *",true) + "```"
+                                    theText(playerA.teams_eliminated,playerB.teams_eliminated,"* Teams Eliminated *",true) + "\n" +
+                                    theText(playerA.win_streak,playerB.win_streak,"*    Win Streak    *",true) + "```"
                                 ).then(msg => checkDM(msg, message.channel.type));
                             }else{
                                 message.reply("",
@@ -1068,6 +1069,202 @@ module.exports = {
                         message.reply("",
                          {
                             embed: embed("Error", "An error occurred. Maybe you misspelled first player's name?", "red")
+                        }).then(msg => checkDM(msg, message.channel.type));
+                    }
+                });
+                break;
+            case "beds":
+                var divN = 2;
+                if (message.channel.id == "314752337354948608" || message.channel.id == "281725164247449600") {divN = 1;}
+                if (message.channel.type != "dm") {message.delete();}
+                req("http://api.hivemc.com/v1/player/" + args[1] + "/BEDS", function(error, response, body){
+                    //In case Hive's API has issues
+                    if (error){logging.legacyLog("URGENT HTTP ERROR")}
+                    //Grab all the information from the API,
+                    //and put it into a player Object
+                    var playerA = JSON.parse(body);
+                    if (playerA.UUID) {
+                        req("http://api.hivemc.com/v1/player/" + args[2] + "/BEDS", function(error2, response2, body2){
+                            //In case Hive's API has issues this time
+                            if (error2){logging.legacyLog("URGENT HTTP ERROR")}
+                            //Grab all the information from the API,
+                            //and put it into another player Object
+                            var playerB = JSON.parse(body2);
+                            if (playerB.UUID) {
+
+                                message.reply("**Comparison of Bed Wars: Solos Stats of " + args[1] + " and " + args[2] + "**\n" +
+                                    "```md\n" + statsFormatting(args[1], false, true) + "> *     Category     * <" + statsFormatting(args[2], true, true) + "\n" +
+                                    theText(playerA.total_points,playerB.total_points,"*      Points      *",true) + "\n" +
+                                    theText(playerA.victories,playerB.victories,"*    Victories     *",true) + "\n" +
+                                    theText(playerA.games_played,playerB.games_played,"*   Games Played   *",true) + "\n" +
+                                    theText(Math.round(100*playerA.victories/(playerA.games_played-playerA.victories))/100,Math.round(100*playerB.victories/(playerB.games_played-playerB.victories))/100,"*    W/L  Ratio    *",true) + "\n" +
+                                    theText(Math.round(playerA.total_points/playerA.games_played),Math.round(playerB.total_points/playerB.games_played),"*       PPG        *",true) + "\n" +
+                                    theText(playerA.kills,playerB.kills,"*      Kills       *",true) + "\n" +
+                                    theText(playerA.deaths,playerB.deaths,"*      Deaths      *",false) + "\n" +
+                                    theText(Math.round(100*playerA.kills/playerA.deaths)/100,Math.round(100*playerB.kills/playerB.deaths)/100,"*    K/D  Ratio    *",true) + "\n" +
+                                    theText(playerA.beds_destroyed,playerB.beds_destroyed,"*  Beds destroyed  *",true) + "\n" +
+                                    theText(Math.round(100*playerA.beds_destroyed/playerA.games_played)/100,Math.round(100*playerB.beds_destroyed/playerB.games_played)/100,"* Beds  Per  Game  *",true) + "\n" +
+                                    theText(playerA.teams_eliminated,playerB.teams_eliminated,"* Teams Eliminated *",true) + "\n" +
+                                    theText(playerA.win_streak,playerB.win_streak,"*    Win Streak    *",true) + "```"
+                                ).then(msg => checkDM(msg, message.channel.type));
+                            }else{
+                                message.reply("",
+                                 {
+                                    embed: embed("Error", "An error occured. Maybe you misspelled second player's name?", "red")
+                                }).then(msg => checkDM(msg, message.channel.type));
+                    }
+                        });
+                    }else{
+                        message.reply("",
+                         {
+                            embed: embed("Error", "An error occured. Maybe you misspelled first player's name?", "red")
+                        }).then(msg => checkDM(msg, message.channel.type));
+                    }
+                });
+                break;
+            case "bedd":
+                var divN = 2;
+                if (message.channel.id == "314752337354948608" || message.channel.id == "281725164247449600") {divN = 1;}
+                if (message.channel.type != "dm") {message.delete();}
+                req("http://api.hivemc.com/v1/player/" + args[1] + "/BEDD", function(error, response, body){
+                    //In case Hive's API has issues
+                    if (error){logging.legacyLog("URGENT HTTP ERROR")}
+                    //Grab all the information from the API,
+                    //and put it into a player Object
+                    var playerA = JSON.parse(body);
+                    if (playerA.UUID) {
+                        req("http://api.hivemc.com/v1/player/" + args[2] + "/BEDD", function(error2, response2, body2){
+                            //In case Hive's API has issues this time
+                            if (error2){logging.legacyLog("URGENT HTTP ERROR")}
+                            //Grab all the information from the API,
+                            //and put it into another player Object
+                            var playerB = JSON.parse(body2);
+                            if (playerB.UUID) {
+
+                                message.reply("**Comparison of Bed Wars: Duos Stats of " + args[1] + " and " + args[2] + "**\n" +
+                                    "```md\n" + statsFormatting(args[1], false, true) + "> *     Category     * <" + statsFormatting(args[2], true, true) + "\n" +
+                                    theText(playerA.total_points,playerB.total_points,"*      Points      *",true) + "\n" +
+                                    theText(playerA.victories,playerB.victories,"*    Victories     *",true) + "\n" +
+                                    theText(playerA.games_played,playerB.games_played,"*   Games Played   *",true) + "\n" +
+                                    theText(Math.round(100*playerA.victories/(playerA.games_played-playerA.victories))/100,Math.round(100*playerB.victories/(playerB.games_played-playerB.victories))/100,"*    W/L  Ratio    *",true) + "\n" +
+                                    theText(Math.round(playerA.total_points/playerA.games_played),Math.round(playerB.total_points/playerB.games_played),"*       PPG        *",true) + "\n" +
+                                    theText(playerA.kills,playerB.kills,"*      Kills       *",true) + "\n" +
+                                    theText(playerA.deaths,playerB.deaths,"*      Deaths      *",false) + "\n" +
+                                    theText(Math.round(100*playerA.kills/playerA.deaths)/100,Math.round(100*playerB.kills/playerB.deaths)/100,"*    K/D  Ratio    *",true) + "\n" +
+                                    theText(playerA.beds_destroyed,playerB.beds_destroyed,"*  Beds destroyed  *",true) + "\n" +
+                                    theText(Math.round(100*playerA.beds_destroyed/playerA.games_played)/100,Math.round(100*playerB.beds_destroyed/playerB.games_played)/100,"* Beds  Per  Game  *",true) + "\n" +
+                                    theText(playerA.teams_eliminated,playerB.teams_eliminated,"* Teams Eliminated *",true) + "\n" +
+                                    theText(playerA.win_streak,playerB.win_streak,"*    Win Streak    *",true) + "```"
+                                ).then(msg => checkDM(msg, message.channel.type));
+                            }else{
+                                message.reply("",
+                                 {
+                                    embed: embed("Error", "An error occured. Maybe you misspelled second player's name?", "red")
+                                }).then(msg => checkDM(msg, message.channel.type));
+                    }
+                        });
+                    }else{
+                        message.reply("",
+                         {
+                            embed: embed("Error", "An error occured. Maybe you misspelled first player's name?", "red")
+                        }).then(msg => checkDM(msg, message.channel.type));
+                    }
+                });
+                break;
+            case "bedt":
+                var divN = 2;
+                if (message.channel.id == "314752337354948608" || message.channel.id == "281725164247449600") {divN = 1;}
+                if (message.channel.type != "dm") {message.delete();}
+                req("http://api.hivemc.com/v1/player/" + args[1] + "/BEDT", function(error, response, body){
+                    //In case Hive's API has issues
+                    if (error){logging.legacyLog("URGENT HTTP ERROR")}
+                    //Grab all the information from the API,
+                    //and put it into a player Object
+                    var playerA = JSON.parse(body);
+                    if (playerA.UUID) {
+                        req("http://api.hivemc.com/v1/player/" + args[2] + "/BEDT", function(error2, response2, body2){
+                            //In case Hive's API has issues this time
+                            if (error2){logging.legacyLog("URGENT HTTP ERROR")}
+                            //Grab all the information from the API,
+                            //and put it into another player Object
+                            var playerB = JSON.parse(body2);
+                            if (playerB.UUID) {
+
+                                message.reply("**Comparison of Bed Wars: Teams Stats of " + args[1] + " and " + args[2] + "**\n" +
+                                    "```md\n" + statsFormatting(args[1], false, true) + "> *     Category     * <" + statsFormatting(args[2], true, true) + "\n" +
+                                    theText(playerA.total_points,playerB.total_points,"*      Points      *",true) + "\n" +
+                                    theText(playerA.victories,playerB.victories,"*    Victories     *",true) + "\n" +
+                                    theText(playerA.games_played,playerB.games_played,"*   Games Played   *",true) + "\n" +
+                                    theText(Math.round(100*playerA.victories/(playerA.games_played-playerA.victories))/100,Math.round(100*playerB.victories/(playerB.games_played-playerB.victories))/100,"*    W/L  Ratio    *",true) + "\n" +
+                                    theText(Math.round(playerA.total_points/playerA.games_played),Math.round(playerB.total_points/playerB.games_played),"*       PPG        *",true) + "\n" +
+                                    theText(playerA.kills,playerB.kills,"*      Kills       *",true) + "\n" +
+                                    theText(playerA.deaths,playerB.deaths,"*      Deaths      *",false) + "\n" +
+                                    theText(Math.round(100*playerA.kills/playerA.deaths)/100,Math.round(100*playerB.kills/playerB.deaths)/100,"*    K/D  Ratio    *",true) + "\n" +
+                                    theText(playerA.beds_destroyed,playerB.beds_destroyed,"*  Beds destroyed  *",true) + "\n" +
+                                    theText(Math.round(100*playerA.beds_destroyed/playerA.games_played)/100,Math.round(100*playerB.beds_destroyed/playerB.games_played)/100,"* Beds  Per  Game  *",true) + "\n" +
+                                    theText(playerA.teams_eliminated,playerB.teams_eliminated,"* Teams Eliminated *",true) + "\n" +
+                                    theText(playerA.win_streak,playerB.win_streak,"*    Win Streak    *",true) + "```"
+                                ).then(msg => checkDM(msg, message.channel.type));
+                            }else{
+                                message.reply("",
+                                 {
+                                    embed: embed("Error", "An error occured. Maybe you misspelled second player's name?", "red")
+                                }).then(msg => checkDM(msg, message.channel.type));
+                    }
+                        });
+                    }else{
+                        message.reply("",
+                         {
+                            embed: embed("Error", "An error occured. Maybe you misspelled first player's name?", "red")
+                        }).then(msg => checkDM(msg, message.channel.type));
+                    }
+                });
+                break;
+            case "bedx":
+                var divN = 2;
+                if (message.channel.id == "314752337354948608" || message.channel.id == "281725164247449600") {divN = 1;}
+                if (message.channel.type != "dm") {message.delete();}
+                req("http://api.hivemc.com/v1/player/" + args[1] + "/BEDX", function(error, response, body){
+                    //In case Hive's API has issues
+                    if (error){logging.legacyLog("URGENT HTTP ERROR")}
+                    //Grab all the information from the API,
+                    //and put it into a player Object
+                    var playerA = JSON.parse(body);
+                    if (playerA.UUID) {
+                        req("http://api.hivemc.com/v1/player/" + args[2] + "/BEDX", function(error2, response2, body2){
+                            //In case Hive's API has issues this time
+                            if (error2){logging.legacyLog("URGENT HTTP ERROR")}
+                            //Grab all the information from the API,
+                            //and put it into another player Object
+                            var playerB = JSON.parse(body2);
+                            if (playerB.UUID) {
+
+                                message.reply("**Comparison of Bed Wars: Double Fun Stats of " + args[1] + " and " + args[2] + "**\n" +
+                                    "```md\n" + statsFormatting(args[1], false, true) + "> *     Category     * <" + statsFormatting(args[2], true, true) + "\n" +
+                                    theText(playerA.total_points,playerB.total_points,"*      Points      *",true) + "\n" +
+                                    theText(playerA.victories,playerB.victories,"*    Victories     *",true) + "\n" +
+                                    theText(playerA.games_played,playerB.games_played,"*   Games Played   *",true) + "\n" +
+                                    theText(Math.round(100*playerA.victories/(playerA.games_played-playerA.victories))/100,Math.round(100*playerB.victories/(playerB.games_played-playerB.victories))/100,"*    W/L  Ratio    *",true) + "\n" +
+                                    theText(Math.round(playerA.total_points/playerA.games_played),Math.round(playerB.total_points/playerB.games_played),"*       PPG        *",true) + "\n" +
+                                    theText(playerA.kills,playerB.kills,"*      Kills       *",true) + "\n" +
+                                    theText(playerA.deaths,playerB.deaths,"*      Deaths      *",false) + "\n" +
+                                    theText(Math.round(100*playerA.kills/playerA.deaths)/100,Math.round(100*playerB.kills/playerB.deaths)/100,"*    K/D  Ratio    *",true) + "\n" +
+                                    theText(playerA.beds_destroyed,playerB.beds_destroyed,"*  Beds destroyed  *",true) + "\n" +
+                                    theText(Math.round(100*playerA.beds_destroyed/playerA.games_played)/100,Math.round(100*playerB.beds_destroyed/playerB.games_played)/100,"* Beds  Per  Game  *",true) + "\n" +
+                                    theText(playerA.teams_eliminated,playerB.teams_eliminated,"* Teams Eliminated *",true) + "\n" +
+                                    theText(playerA.win_streak,playerB.win_streak,"*    Win Streak    *",true) + "```"
+                                ).then(msg => checkDM(msg, message.channel.type));
+                            }else{
+                                message.reply("",
+                                 {
+                                    embed: embed("Error", "An error occured. Maybe you misspelled second player's name?", "red")
+                                }).then(msg => checkDM(msg, message.channel.type));
+                    }
+                        });
+                    }else{
+                        message.reply("",
+                         {
+                            embed: embed("Error", "An error occured. Maybe you misspelled first player's name?", "red")
                         }).then(msg => checkDM(msg, message.channel.type));
                     }
                 });
@@ -1357,6 +1554,7 @@ module.exports = {
                             "Available Gamemodes: \n" +
                             " • Block Party - BP\n" +
                             " • Bed Wars - BED\n" +
+                            " • Bed Wars - BED`*`\n" +
                             " • Cowboys and Indians - CAI\n" +
                             " • DeathRun - DR\n" +
                             " • Explosive Eggs - EE" + "\n" +
@@ -1373,7 +1571,8 @@ module.exports = {
                             " • The Lab - LAB\n" +
                             " • Trouble in Mineville - TIMV\n" +
                             "For Arcade game codes use `-compare Arcade`\n" +
-                            "\nUsage: `-compare {Game Code} {Player1} {Player2}`", "blue")
+                            "\nUsage: `-compare {Game Code} {Player1} {Player2}`" +
+                            "\n\n**For stats on each BW mode add S, D, T or X; at the end, to get stats for Solos, Duos, Teams and Double Fun respectively. (ex. BEDX)*", "blue")
                     }).then(msg => checkDM(msg, message.channel.type, 1));
                 break;
         }
