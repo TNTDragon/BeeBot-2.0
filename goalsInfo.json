@@ -1,0 +1,429 @@
+{
+  "hide": {
+    "availableGoals": ["wl","kd","kills","deaths","wins","rankup","games","points","seekerkills","hiderkills"],
+    "gameTime": {
+      "lobbyTime": 60,
+      "lowAverage": 150,
+      "highAverage": 330
+    },
+    "wins": "victories",
+    "games": "gamesplayed",
+    "deaths": "deaths",
+    "points": "total_points",
+	"seekerkills": "seekerkills",
+	"hiderkills": "hiderkills"
+  },
+  "dr": {
+    "availableGoals": ["wl", "kills", "deaths", "wins", "points", "games", "rankup"],
+    "gameTime": {
+      "lobbyTime": 40,
+      "lowAverage": 60,
+      "highAverage": 90
+    },
+    "wins": "victories",
+    "games": "games_played",
+    "deaths": "deaths",
+    "points": "total_points",
+    "kills": "kills"
+  },
+  "grav": {
+  "availableGoals": ["wl","wins","points","games","rankup"],
+  "gameTime": {
+    "lobbyTime": 40,
+    "lowAverage": 45,
+    "highAverage": 70
+  },
+  "wins": "victories",
+  "games": "gamesplayed",
+  "points": "points"
+  },
+  "bp": {
+    "availableGoals": ["wl","points","games","wins","deaths","rankup"],
+    "gameTime": {
+      "lobbyTime": 30,
+      "lowAverage": 160,
+      "highAverage": 200
+    },
+    "wins": "victories",
+    "games": "games_played",
+    "deaths": "total_eliminations",
+    "points": "total_points"
+  },
+  "cai": {
+    "availableGoals": ["wl","points","captures","games","wins","rankup"],
+    "gameTime": {
+      "lobbyTime": 70,
+      "lowAverage": 220,
+      "highAverage": 560
+    },
+    "wins": "victories",
+    "games": "gamesplayed",
+    "points": "total_points",
+    "captures": "captures"
+  },
+  "mimv": {
+    "availableGoals": ["wl","kd","wins","kills","points","games","deaths","rankup"],
+    "gameTime": {
+      "lobbyTime": 40,
+      "lowAverage": 120,
+      "highAverage": 240
+    },
+    "wins": "victories",
+    "games": "games_played",
+    "deaths": "deaths",
+    "points": "total_points",
+    "kills": "kills"
+  },
+  "sgn": {
+    "availableGoals": ["wl","kd","wins","kills","games","deaths"],
+    "gameTime": {
+      "lobbyTime": 90,
+      "lowAverage": 400,
+      "highAverage": 750
+    },
+    "wins": "victories",
+    "games": "games_played",
+    "deaths": "deaths",
+    "kills": "kills"
+  },
+  "sky": {
+    "availableGoals": ["wl","kd", "wins","games","deaths","points","kills","rankup"],
+    "gameTime": {
+      "lobbyTime": 55,
+      "lowAverage": 200,
+      "highAverage": 550
+    },
+    "wins": "victories",
+    "games": "gamesplayed",
+    "deaths": "deaths",
+    "points": "total_points",
+    "kills": "kills"
+  },
+  "bed": {
+    "availableGoals": ["wl","kd","wins","games","kills","deaths","points","beds","teams"],
+    "gameTime": {
+      "lobbyTime": 100,
+      "lowAverage": 180,
+      "highAverage": 600
+    },
+    "wins": "victories",
+    "games": "games_played",
+    "deaths": "deaths",
+    "points": "total_points",
+    "kills": "kills",
+    "beds": "beds_destroyed",
+    "teams": "teams_eliminated"
+  },
+  "beds": {
+    "availableGoals": ["wl","kd","wins","games","kills","deaths","points","beds","teams"],
+    "gameTime": {
+      "lobbyTime": 120,
+      "lowAverage": 420,
+      "highAverage": 900
+    },
+    "wins": "victories",
+    "games": "games_played",
+    "deaths": "deaths",
+    "points": "total_points",
+    "kills": "kills",
+    "beds": "beds_destroyed",
+    "teams": "teams_eliminated"
+  },
+  "bedd": {
+    "availableGoals": ["wl","kd","wins","games","kills","deaths","points","beds","teams"],
+    "gameTime": {
+      "lobbyTime": 150,
+      "lowAverage": 360,
+      "highAverage": 900
+    },
+    "wins": "victories",
+    "games": "games_played",
+    "deaths": "deaths",
+    "points": "total_points",
+    "kills": "kills",
+    "beds": "beds_destroyed",
+    "teams": "teams_eliminated"
+  },
+  "bedt": {
+    "availableGoals": ["wl","kd","wins","games","kills","deaths","points","beds","teams"],
+    "gameTime": {
+      "lobbyTime": 90,
+      "lowAverage": 180,
+      "highAverage": 660
+    },
+    "wins": "victories",
+    "games": "games_played",
+    "deaths": "deaths",
+    "points": "total_points",
+    "kills": "kills",
+    "beds": "beds_destroyed",
+    "teams": "teams_eliminated"
+  },
+  "bedx": {
+    "availableGoals": ["wl","kd","wins","games","kills","deaths","points","beds","teams"],
+    "gameTime": {
+      "lobbyTime": 120,
+      "lowAverage": 390,
+      "highAverage": 90
+    },
+    "wins": "victories",
+    "games": "games_played",
+    "deaths": "deaths",
+    "points": "total_points",
+    "kills": "kills",
+    "beds": "beds_destroyed",
+    "teams": "teams_eliminated"
+  },
+  "gnt": {
+    "availableGoals": ["wl","kd","wins","kills","games","points","deaths","gold","beasts","shutdowns","rankup"],
+    "gameTime": {
+      "lobbyTime": 200,
+      "lowAverage": 600,
+      "highAverage": 1020
+    },
+    "wins": "victories",
+    "games": "games_played",
+    "deaths": "deaths",
+    "points": "total_points",
+    "kills": "kills",
+    "gold": "gold_earned",
+    "beasts": "beasts_slain",
+    "shutdowns": "shutdowns"
+  },
+  "gntm": {
+    "availableGoals": ["wl","kd","wins","kills","games","points","deaths","gold","beasts","shutdowns","rankup"],
+    "gameTime": {
+      "lobbyTime": 150,
+      "lowAverage": 180,
+      "highAverage": 360
+    },
+    "wins": "victories",
+    "games": "games_played",
+    "deaths": "deaths",
+    "points": "total_points",
+    "kills": "kills",
+    "gold": "gold_earned",
+    "beasts": "beasts_slain",
+    "shutdowns": "shutdowns"
+  },
+  "lab": {
+    "availableGoals": ["wl","wins","games","points","rankup"],
+    "gameTime": {
+      "lobbyTime": 100,
+      "lowAverage": 360,
+      "highAverage": 540
+    },
+    "wins": "victories",
+    "games": "gamesplayed",
+    "points": "total_points"
+  },
+  "mm": {
+    "availableGoals": ["wl","wins","games","points","noteacc","perfectnotes","goodnotes","correctnotes","incorrectnotes","rankup"],
+    "gameTime": {
+      "lobbyTime": 140,
+      "lowAverage": 120,
+      "highAverage": 120
+    },
+    "wins": "victories",
+    "games": "gamesplayed",
+    "correctnotes": "correctnotes",
+    "points": "points",
+    "incorrectnotes": "incorrectnotes",
+    "perfectnotes": "notes_perfect",
+    "goodnotes": "notes_good"
+  },
+  "ef": {
+    "availableGoals": ["wl","points","blocks","outlived","games","rankup"],
+    "gameTime": {
+      "lobbyTime": 90,
+      "lowAverage": 120,
+      "highAverage": 300
+    },
+    "wins": "victories",
+    "games": "gamesplayed",
+    "outlived": "outlived",
+    "points": "points",
+    "blocks": "blocksactivated"
+  },
+  "bd": {
+    "availableGoals": ["wl","kd","wins","deaths","kills","games","points","energy","rankup"],
+    "gameTime": {
+      "lobbyTime": 135,
+      "lowAverage": 240,
+      "highAverage": 300
+    },
+    "wins": "batteries_charged",
+    "games": "games_played",
+    "deaths": "deaths",
+    "points": "total_points",
+    "kills": "kills",
+    "energy": "energy_collected"
+  },
+  "oitc": {
+    "availableGoals": ["wl","kd","wins","games","kills","points","deaths","shots","rankup"],
+    "gameTime": {
+      "lobbyTime": 150,
+      "lowAverage": 150,
+      "highAverage": 180
+    },
+    "wins": "victories",
+    "games": "gamesplayed",
+    "deaths": "deaths",
+    "points": "total_points",
+    "kills": "kills",
+    "shots": "arrowsfired"
+  },
+  "sp": {
+    "availableGoals": ["wl","points","wins","games","deaths","eggs","blocks","rankup"],
+    "gameTime": {
+      "lobbyTime": 90,
+      "lowAverage": 150,
+      "highAverage": 240
+    },
+    "wins": "victories",
+    "games": "gamesplayed",
+    "deaths": "deaths",
+    "points": "points",
+    "eggs": "eggsfired",
+    "blocks": "blocksdestroyed"
+  },
+  "draw": {
+    "availableGoals": ["wl","games","wins","points","rankup"],
+    "gameTime": {
+      "lobbyTime": 90,
+      "lowAverage": 420,
+      "highAverage": 700
+    },
+    "wins": "victories",
+    "games": "gamesplayed",
+    "points": "total_points"
+  },
+  "spl": {
+    "availableGoals": ["wl","kd","wins","games","kills","deaths","points","paint","rankup"],
+    "gameTime": {
+      "lobbyTime": 200,
+      "lowAverage": 360,
+      "highAverage": 600
+    },
+    "wins": "victories",
+    "games": "games_played",
+    "deaths": "deaths",
+    "points": "total_points",
+    "kills": "kills",
+    "paint": "blocks_painted"
+  },
+  "hero": {
+    "availableGoals": ["wl","kd","games","wins","kills","deaths","points","crates"],
+    "gameTime": {
+      "lobbyTime": 240,
+      "lowAverage": 360,
+      "highAverage": 480
+    },
+    "wins": "victories",
+    "games": "games_played",
+    "deaths": "deaths",
+    "points": "total_points",
+    "kills": "kills",
+    "crates": "crates_opened"
+  },
+  "slap": {
+    "availableGoals": ["wl","wins","kills","deaths","games","points","rankup"],
+    "gameTime": {
+      "lobbyTime": 100,
+      "lowAverage": 180,
+      "highAverage": 300
+    },
+    "wins": "victories",
+    "games": "gamesplayed",
+    "deaths": "deaths",
+    "points": "points",
+    "kills": "kills"
+  },
+  "rr": {
+    "availableGoals": ["wl","wins","games","points","tables"],
+    "gameTime": {
+      "lobbyTime": 100,
+      "lowAverage": 210,
+      "highAverage": 210
+    },
+    "wins": "victories",
+    "games": "gamesplayed",
+    "points": "points",
+    "tables": "tablescleared"
+  },
+  "cr": {
+    "availableGoals": ["wl","kd","wins","games","kills","deaths","points","catacc","chickenacc","squidacc","rankup"],
+    "gameTime": {
+      "lobbyTime": 100,
+      "lowAverage": 150,
+      "highAverage": 300
+    },
+    "wins": "victories",
+    "games": "gamesplayed",
+    "deaths": "deaths",
+    "points": "total_points",
+    "kills": "kills"
+  },
+  "pmk": {
+    "availableGoals": ["wl","wins","games","points","infections","kills","rankup"],
+    "gameTime": {
+      "lobbyTime": 100,
+      "lowAverage": 180,
+      "highAverage": 180
+    },
+    "wins": "victories",
+    "games": "games_played",
+    "points": "total_points",
+    "kills": "kills",
+    "infections": "infections"
+  },
+  "ee": {
+    "availableGoals": ["wl","wins","games","points","leaps"],
+    "gameTime": {
+      "lobbyTime": 100,
+      "lowAverage": 180,
+      "highAverage": 180
+    },
+    "wins": "victories",
+    "games": "gamesplayed",
+    "points": "points",
+    "leaps": "leaps"
+  },
+  "surv": {
+    "availableGoals": ["wl","wins","games","points","kills","deaths","generators","crates","rankup"],
+    "gameTime": {
+      "lobbyTime": 100,
+      "lowAverage": 180,
+      "highAverage": 180
+    },
+    "wins": "victories",
+    "games": "games_played",
+    "points": "total_points",
+    "kills": "kills",
+    "deaths": "deaths",
+    "generators": "generators_powered",
+    "crates": "looted_crates"
+  },
+  "descriptors": {
+    "wl": "W/L",
+    "kd": "K/D",
+    "seekerkills": "kills as a seeker",
+    "hiderkills": "kills as a hider",
+    "eggs": "eggs fired",
+    "blocks": "blocks destroyed",
+    "shots": "arrows fired",
+    "energy": "energy collected",
+    "beds": "beds broken",
+    "teams": "teams eliminated",
+    "gold": "gold collected",
+    "noteacc": "note accuracy[%]",
+    "paint": "blocks painted",
+    "crates": "crates opened",
+    "tables": "tables cleared",
+    "catacc": "RC Cat accuracy[%]",
+    "chickenacc": "Air Strike accuracy[%]",
+    "squidacc": "Sonic Squid accuracy[%]"
+  },
+  "genericGoals": ["wins","kills","deaths","games","points","hiderkills","seekerkills","captures","beds","teams","beasts","gold","shutdowns","energy","shots","eggs","blocks","paint","crates"],
+  "ratioGoals": ["wl","kd","noteacc","catacc","chickenacc","squidacc"]
+}
