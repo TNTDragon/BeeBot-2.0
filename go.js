@@ -2,6 +2,7 @@
 
 //config
 config = require("./config.json");
+goalsConfig = require("./goalsInfo.json");
 //bot information
 botInfo = require("./package.json");
 //discord library
